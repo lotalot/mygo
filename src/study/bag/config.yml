@@ -1,0 +1,2 @@
+mysql:
+  dns: root:11575@tcp(127.0.0.1:3306)/myku?charset=utf8mb4&parseTime=True&loc=Local
