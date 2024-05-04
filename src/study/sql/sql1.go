@@ -1,4 +1,4 @@
-package main
+package sql
 
 /*登入mysql:mysql -uroot -p+密码
 show databases;          显示可用的数据库，都使用；结尾
