@@ -46,13 +46,15 @@ func main1() { //执行入口 main函数，{ 要求与函数同一行
 	for k, v := range team {
 		fmt.Println(k, v) //打印键值及数组
 	}
-	var qp []string                                 //声明一个切片，和创建类似
+	var qp []string                                 //声明一个切片，和创建类似,[]中有明确大小既为数组
 	var cheeses = make([]string, 3)                 //创建一个大小为3的切片，类似vector
 	cheeses = append(cheeses, "sb")                 //向容器中添加元素，可以添加多个值
 	cheeses = append(cheeses, qp...)                //将qp切片整个添加到后面
 	copy(cheeses, qp)                               //复制qp到cheeses1
 	cheeses = append(cheeses[:1], cheeses[1+1:]...) //切片删除一位（该编号为1）的操作（包括前不包括后）
 	fmt.Println(team[1:2])                          //切，打印数组(或切片)1到2之间不包括2的内容，空为到一端
+	//当切片 a = b 操作时会让a和b指向同一块内存，改变a也会改变b，所以要使用copy函数，同时使用append()函数时
+	//若超出切片容积时，会自动扩容，但会重新分配内存和地址，所以不要在循环中append，否则会频繁分配内存
 
 	scene := make(map[string]int) //创建一个以String形为键 int为值的映射
 	//map可以通过将键值设置为结构体的方式实现多键值映射
